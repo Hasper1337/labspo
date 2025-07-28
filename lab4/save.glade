@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.40.0 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkListStore" id="liststore_all">
+    <columns>
+      <!-- column-name owner_id -->
+      <column type="gint"/>
+      <!-- column-name owner_name -->
+      <column type="gchararray"/>
+      <!-- column-name auto_id -->
+      <column type="gint"/>
+      <!-- column-name auto_model -->
+      <column type="gchararray"/>
+      <!-- column-name auto_vin -->
+      <column type="gchararray"/>
+      <!-- column-name auto_hp -->
+      <column type="gint"/>
+      <!-- column-name auto_color -->
+      <column type="gchararray"/>
+      <!-- column-name carbrand_id -->
+      <column type="gint"/>
+      <!-- column-name carbrand_name -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="main_window">
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">lab4</property>
+    <property name="window-position">center</property>
+    <property name="default-width">1000</property>
+    <property name="default-height">350</property>
+    <signal name="destroy" handler="onExit" swapped="no"/>
+    <child>
+      <object class="GtkPaned" id="hpaned">
+        <property name="visible">True</property>
+        <property name="can-focus">True</property>
+        <property name="wide-handle">True</property>
+        <child>
+          <object class="GtkScrolledWindow" id="leftSide">
+            <property name="width-request">50</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="shadow-type">in</property>
+            <child>
+              <object class="GtkViewport" id="leftVIewport">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkTreeView" id="tree_owner">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="model">liststore_all</property>
+                    <property name="enable-grid-lines">both</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection"/>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="cln_owner_id">
+                        <property name="visible">False</property>
+                        <property name="resizable">True</property>
+                        <property name="title" translatable="yes">id владельца</property>
+                        <child>
+                          <object class="GtkCellRendererSpin" id="clnrender_owner_id"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="cln_owner_name">
+                        <property name="resizable">True</property>
+                        <property name="title" translatable="yes">ФИО</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="clnrender_owner_name">
+                            <signal name="edited" handler="on_clnrender_owner_name_edited" swapped="no"/>
+                          </object>
+                          <attributes>
+                            <attribute name="text">1</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="cln_auto_id">
+                        <property name="visible">False</property>
+                        <property name="title" translatable="yes">id Машины</property>
+                        <child>
+                          <object class="GtkCellRendererSpin" id="clnrender_auto_id"/>
+                          <attributes>
+                            <attribute name="adjustment">2</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="cln_auto_model">
+                        <property name="resizable">True</property>
+                        <property name="title" translatable="yes">Модель машины</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="clnrender_auto_model">
+                            <signal name="edited" handler="on_clnrender_auto_model_edited" swapped="no"/>
+                          </object>
+                          <attributes>
+                            <attribute name="text">3</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="cln_auto_vin">
+                        <property name="title" translatable="yes">VIN-номер</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="clnrender_auto_vin">
+                            <signal name="edited" handler="on_clnrender_auto_vin_edited" swapped="no"/>
+                          </object>
+                          <attributes>
+                            <attribute name="text">4</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="cln_auto_hp">
+                        <property name="resizable">True</property>
+                        <property name="title" translatable="yes">Мощность в л.с.</property>
+                        <property name="clickable">True</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="clnrender_auto_hp">
+                            <signal name="edited" handler="on_clnrender_auto_hp_edited" swapped="no"/>
+                          </object>
+                          <attributes>
+                            <attribute name="text">5</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="cln_auto_color">
+                        <property name="resizable">True</property>
+                        <property name="title" translatable="yes">Цвет</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="clnrender_auto_color">
+                            <signal name="edited" handler="on_clnrender_auto_color_edited" swapped="no"/>
+                          </object>
+                          <attributes>
+                            <attribute name="text">6</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="cln_carbrand_id">
+                        <property name="visible">False</property>
+                        <property name="title" translatable="yes">id Марки</property>
+                        <child>
+                          <object class="GtkCellRendererSpin" id="clnrender_carbrand_id">
+                            <signal name="edited" handler="on_clnrender_carbrand_id_edited" swapped="no"/>
+                          </object>
+                          <attributes>
+                            <attribute name="adjustment">7</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id=" cln_carbrand_name">
+                        <property name="resizable">True</property>
+                        <property name="title" translatable="yes">Марка</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="clnrender_carbrand_name">
+                            <signal name="edited" handler="on_clnrender_carbrand_name_edited" swapped="no"/>
+                          </object>
+                          <attributes>
+                            <attribute name="text">8</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="resize">False</property>
+            <property name="shrink">False</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="rightSIde">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="shadow-type">in</property>
+            <child>
+              <object class="GtkViewport" id="rightViewPort">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkButtonBox" id="buttonBox">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="margin-top">44</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">48</property>
+                    <property name="layout-style">start</property>
+                    <child>
+                      <object class="GtkButton" id="saveButton">
+                        <property name="label" translatable="yes">Сохранить данные</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_saveButton_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="editButton">
+                        <property name="label" translatable="yes">Редактировать данные</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_editButton_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="addButton">
+                        <property name="label" translatable="yes">Добавить данные</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_addButton_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="deleteButton">
+                        <property name="label" translatable="yes">Удалить данные</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                        <property name="image-position">top</property>
+                        <signal name="clicked" handler="on_deleteButton_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">3</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="resize">False</property>
+            <property name="shrink">True</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
